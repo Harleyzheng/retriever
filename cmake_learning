@@ -1,4 +1,6 @@
-cmake
+cmake:
+option can be changed at compile time
+cmake -DOPTION_NAME=OFF -S
 
 makefile: 
 does not accept spaces 
