@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Adder/adder.h"
+#include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
 int main() {
@@ -19,10 +20,22 @@ int main() {
         glfwTerminate();
         exit( EXIT_FAILURE );
     }
+    glfwMakeContextCurrent(window);
+
+    // init GLAD
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress))
+    {
+        fprintf(stderr, "glad initialization failed\n");
+        glfwDestroyWindow(window);
+        glfwTerminate();
+        return -1;
+    }
 
     // Main loop
     while( !glfwWindowShouldClose(window) )
     {
+        glClearColor(0.3,0.4,0.5,1.0);
+        glClear(GL_COLOR_BUFFER_BIT);
         // Swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();

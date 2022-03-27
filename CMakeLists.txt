@@ -4,7 +4,10 @@ project(retriever)
 
 # ${PROJECT_NAME} used to reference name
 
-add_executable(${PROJECT_NAME} main.cpp)
+include_directories(glad)
+
+add_executable(${PROJECT_NAME} main.cpp glad/glad.c 
+)
 
 add_subdirectory(Adder)
 add_subdirectory(external/glfw)
